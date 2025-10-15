@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="az">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Axtarış</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='i/style_i.css') }}">
+  </head>
+  <body>
+    <h1>Axtarış</h1>
+    <form action="/search_results" method="GET">
+      <input type="text" name="query" placeholder="Sorğunuzu daxil edin..." />
+      <button type="submit">Axtar</button>
+      <button type="button" id="hoverButton">
+        Yeniləyin
+        <div class="tooltip" id="tooltip">Tender məlumatlarını yeniləyin</div>
+      </button>
+    </form>
+
+    <div id="loadingMessage">Məlumat yenilənir, tamamlanmasını gözləyin.</div>
+    <script src="{{ url_for('static', filename='i/script_i.js') }}"></script>
+  </body>
+</html>
