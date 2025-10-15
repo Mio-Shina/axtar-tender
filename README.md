@@ -1,12 +1,10 @@
 # axtar-tender
-Site for searching information about tenders in database
+A web application for searching tender information in a database.
 
-This project is designed for automated data collection from the website etender.gov.az and saving it to a MySQL database. The system provides the ability to search through the collected data via a web interface.
+This project automates data collection from the website etender.gov.az and stores it in a MySQL database. Users can search the collected data via a simple web interface.
 
-The main functions of the project include: 
+## Main Features
 
-      Data Collection: The project collects tender information from the website using requests and saves it to the MySQL database. 
-  
-      Data Update: On the index.html page is a button for updating the database, which triggers re-collecting data and adding new information. 
-  
-      Data Search: Users can perform searches in the database through a form on the index.html page by specifying the required parameters. The search results are displayed on the search_results.html page as a table with the     necessary information.
+- **Data Collection:** Automatically gathers tender information from the website and saves it to the MySQL database.  
+- **Data Update:** The index page includes an "Update Database" button, which re-collects new tender data and adds it to the database.  
+- **Data Search:** Users can search the database using a form on the index page. Search results are displayed in a table on the `search_results.html` page with all relevant information.
