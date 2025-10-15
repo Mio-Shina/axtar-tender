@@ -1,0 +1,6 @@
+Flask==2.3.3
+mysql-connector-python==8.4.0
+rapidfuzz==3.13.0
+requests==2.31.0
+python-dotenv
+gunicorn
