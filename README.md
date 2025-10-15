@@ -5,8 +5,8 @@ This project is designed for automated data collection from the website etender.
 
 The main functions of the project include: 
 
-  Data Collection: The project collects tender information from the website using requests and saves it to the MySQL database. 
+      Data Collection: The project collects tender information from the website using requests and saves it to the MySQL database. 
   
-  Data Update: On the index.html page is a button for updating the database, which triggers re-collecting data and adding new information. 
+      Data Update: On the index.html page is a button for updating the database, which triggers re-collecting data and adding new information. 
   
-  Data Search: Users can perform searches in the database through a form on the index.html page by specifying the required parameters. The search results are displayed on the search_results.html page as a table with the necessary information.
+      Data Search: Users can perform searches in the database through a form on the index.html page by specifying the required parameters. The search results are displayed on the search_results.html page as a table with the     necessary information.
