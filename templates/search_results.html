@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="az">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Axtarış nəticələri</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='sr/style_sr.css') }}">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    />
+  </head>
+  <body>
+    <h1>Axtarış nəticələri</h1>
+
+    <div class="filter">
+      <label for="date_range">Tarix aralığı:</label>
+      <input type="text" id="date_range" placeholder="Başlanğıc - Son tarix" />
+      <button onclick="filterTable()">Filtrlə</button>
+    </div>
+
+    {% if results %}
+    <table>
+      <thead>
+        <tr>
+          {% for col_name in column_names %}
+            {% if col_name not in ['detail_description', 'participation_description', 'usage_description'] %}
+              <th>{{ col_name }}</th>
+            {% endif %}
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for result in results %}
+        <tr>
+          {% for i in range(result|length) %}
+            {% if column_names[i] not in ['detail_description', 'participation_description', 'usage_description'] %}
+              <td>
+                {% if column_names[i] == 'detailed' and result[i] != 'Yoxdur' %}
+                  <a href="{{ result[i] }}" target="_blank">{{ result[i] }}</a>
+                {% else %}
+                  {{ result[i] }}
+                {% endif %}
+              </td>
+            {% endif %}
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p>Sorğunuzla bağlı nəticə tapılmadı</p>
+    {% endif %}
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/az.js"></script>
+    <script src="{{ url_for('static', filename='sr/script_sr.js') }}"></script>
+  </body>
+</html>
