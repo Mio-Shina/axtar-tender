@@ -6,7 +6,6 @@ import datetime
 TEXT_LIMIT = 65000
 
 def safe_append(data_dict, key, value):
-    """Добавляем обрезанное значение в словарь"""
     if value is None:
         value = 'Yoxdur'
     elif isinstance(value, str):
@@ -26,7 +25,6 @@ main_data = {
 API_REQUEST_DELAY = 2
 
 def try_request(url):
-    """Простая обертка requests.get без прокси"""
     try:
         resp = requests.get(url, timeout=25)
         if resp.status_code == 200:
