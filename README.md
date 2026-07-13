@@ -1,11 +1,25 @@
-# axtar-tender
-A web application for searching tender information in a database.
+# Axtar-Tender (Агрегатор Госзакупок и Тендеров)
 
-This project automates data collection from the website etender.gov.az and stores it in a MySQL database. Users can search the collected data via a simple web interface.
+Веб-приложение (Full-Stack) для автоматического сбора, структурирования и поиска информации о тендерах с государственного портала etender.gov.az.
 
-## Main Features
+## Технологический стек
+- **Backend:** Python (Flask), PyMySQL / SQLAlchemy
+- **Database:** MySQL (Реляционная база данных для хранения логов и тендеров)
+- **Scraping / Automation:** BeautifulSoup4, Requests, Time/Threading (для автообновления)
+- **Frontend:** HTML5, CSS3, JavaScript (Асинхронные запросы)
 
-- **Data Collection:** Automatically gathers tender information from the website and saves it to the MySQL database.  
-- **Data Update:** The index page includes an "Yeniləyin" button, which re-collects new tender data and adds it to the database.
-- **Data Auto-Update:** The index page includes auto-update, which re-collects new tender data and adds it to the database during time. 
-- **Data Search:** Users can search the database using a form on the index page. Search results are displayed in a table on the `search_results.html` page with all relevant information.
+## Основной функционал
+
+- **Автоматический Веб-Скрейпинг (Data Collection):** Написан кастомный парсер для извлечения структурированных данных о тендерах в реальном времени с обходом базовых ограничений платформы.
+- **Оптимизированное хранение данных (MySQL):** Спроектирована схема реляционной БД для предотвращения дублирования записей при повторном парсинге.
+- **Асинхронный движок обновлений (Background Tasks):**
+  - **Ручное обновление:** Кнопка "Yeniləyin" на главной странице запускает мгновенный добор новых тендеров.
+  - **Автоматический планировщик (Auto-Update):** Скрипт периодически проверяет первоисточник в фоновом режиме и обновляет локальную базу данных.
+- **Поисковая система (Data Search):** Реализована серверная фильтрация и гибкий поиск по ключевым словам. Результаты динамически выводятся в виде интерактивной таблицы на странице `search_results.html`.
+
+## Структура проекта
+- `app.py` — Инициализация Flask-приложения, маршрутизация и обработка API-запросов.
+- `scrapper.py` — Логика парсинга, обработка HTML-структуры и валидация данных.
+- `config.py` — Конфигурация подключения к базе данных MySQL.
+- `templates/` — HTML-шаблоны интерфейса (многостраничная структура).
+- `static/` — Кастомные стили и JavaScript-скрипты для интерактивности.
